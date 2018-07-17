@@ -6,6 +6,7 @@ MY_PATH=`( cd "$MY_PATH" && pwd )`
 
 cd $MY_PATH
 git pull
+git submodule init 
 git submodule update --init --recursive
 
 exit 0
