@@ -42,9 +42,8 @@ bash $APPCONFIG_PATH/opencv/install.sh
 #install ros
 bash $APPCONFIG_PATH/ros/install.sh
 
-#install python packages
-sudo apt-get install python-pip
-pip install numpy scipy matplotlib
+#install python libs
+bash $APPCONFIG_PATH/python/install.sh
 
 #add aliases
 sudo ln -s /usr/bin/xdg-open /usr/bin/open
