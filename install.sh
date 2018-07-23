@@ -5,6 +5,7 @@ MY_PATH=`dirname "$0"`
 MY_PATH=`( cd "$MY_PATH" && pwd )`
 
 APPCONFIG_PATH=$MY_PATH/appconfig
+MISC_PATH=$MY_PATH/misc
 
 cd $MY_PATH
 git pull
@@ -54,3 +55,8 @@ if [ "$num" -lt "1" ]; then
     cat $APPCONFIG_PATH/tmux/bashconfig >> ~/.bashrc
 fi
 
+#add user to dialout group
+sudo add-user `whoami` dialout
+
+#copy udev-rules
+bash $MISC_PATH/udev/install.sh 
