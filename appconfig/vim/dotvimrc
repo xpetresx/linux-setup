@@ -1,0 +1,125 @@
+"copy and paste 
+"set clipboard=unnamed
+set clipboard=unnamedplus
+
+" better intendation Ctrl + >
+vnoremap < <gv 
+vnoremap > >gv
+
+" Syntax highlighting
+filetype off
+filetype plugin indent on
+syntax on
+
+" set number of undos
+set undolevels=700
+
+" no backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" relative numbering of lines in vim
+set number relativenumber
+"set norelativenumber
+"set !relativenumber
+
+set cursorline
+hi LineNr 	term=bold cterm=NONE ctermfg=DarkGray ctermbg=NONE gui=NONE guifg=DarkGray guibg=NONE
+hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
+hi CursorLine   cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=darkgray guifg=NONE
+
+" pane splitting
+set splitbelow
+set splitright
+
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+" wrap cursor on endline
+set whichwrap+=<,>,h,l,[,]
+
+set clipboard=unnamedplus     " shared clipboard with the system
+
+" some color stuff
+syntax enable
+
+" should fix colors in tmux
+set term=screen-256color
+
+
+call plug#begin('~/.vim/plugged')
+
+"Plug 'junegunn/vim-easy-align'
+  
+  " file manager (leader+n)
+  "Plug 'scrooloose/nerdtree'
+  
+  " python formatting
+  "Plug 'hynek/vim-python-pep8-indent'
+  
+  " youcompleteme
+  " automatic code completion for C++ and more
+  "Plug 'valloric/youcompleteme', { 'commit': '263bd88bd54278dba94c4d6c43ad5fcde2fcd3bb' }
+  
+  " Latex stuff
+  "Plug 'lervag/vimtex'
+
+  " color scheme
+  Plug 'nanotech/jellybeans.vim'
+
+  " sharing registers between multiple instances of vim
+  "Plug 'ardagnir/united-front'
+  
+  " vim airline
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'  
+
+call plug#end()
+
+
+" Useful when studying strange source code.
+" Type z/ to toggle highlighting on/off.
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=4000
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=500
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
+
+nnoremap <leader>a :call AutoHighlightToggle()<cr>
+
+" just show the autocomplete menu
+"set completeopt=longest,menuone  
+
+
+colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
+
+"latex 
+"let g:vimtex_compiler_latexmk = {'callback' : 0}
+
+
+"vim-airline config
+source ~/.vim/pluginconfig/vim-airline.vim
+
+"nerdtree shortcut
+"map <C-n> :NERDTreeToggle<CR>
+"
+
+"check spelling
+"set spell spelllang=en_us
