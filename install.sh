@@ -12,8 +12,6 @@ git pull
 git submodule init 
 git submodule update --init --recursive
 
-exit 0
-
 #update and upgrade current packages
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -26,6 +24,9 @@ sudo apt-get -y install libncurses5-dev libsdl2-dev
 
 #install tools
 sudo apt-get -y install htop tree ncdu git subversion unzip dialog
+
+#install cifs-utils for mounting dataset repository
+sudo apt-get install cifs-utils
 
 #video processing 
 sudo apt-get -y install vlc mplayer ffmpeg

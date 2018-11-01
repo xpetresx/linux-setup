@@ -19,6 +19,11 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+"reload files changed outside vim - trigger autoread when changing buffers or
+"comming back to vim
+set autoread
+au FocusGained,BufEnter * :silent! !
+
 " relative numbering of lines in vim
 set number relativenumber
 "set norelativenumber
@@ -30,13 +35,13 @@ hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 hi CursorLine   cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=darkgray guifg=NONE
 
 " pane splitting
-set splitbelow
 set splitright
+set splitbelow
 
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
+set tabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
+" On pressing tab, insert 2 spaces
 set expandtab
 
 " wrap cursor on endline
@@ -50,6 +55,11 @@ syntax enable
 " should fix colors in tmux
 set term=screen-256color
 
+" start scrolling when 8 lines away from margin
+set scrolloff=8
+
+" use enter to create new lines w/o entering insert mode
+nnoremap <CR> o
 
 call plug#begin('~/.vim/plugged')
 
