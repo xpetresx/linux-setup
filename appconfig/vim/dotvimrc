@@ -38,6 +38,7 @@ hi CursorLine   cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=darkgray guifg=NO
 set splitright
 set splitbelow
 
+" TABS
 set tabstop=2
 " when indenting with '>', use 2 spaces width
 set shiftwidth=2
@@ -61,13 +62,23 @@ set scrolloff=8
 " use enter to create new lines w/o entering insert mode
 nnoremap <CR> o
 
+" remap the leader key
+nnoremap , <NOP>
+let mapleader = ","
+nnoremap <space> <NOP>
+let maplocalleader = "`"
+
+
 call plug#begin('~/.vim/plugged')
 
 "Plug 'junegunn/vim-easy-align'
   
   " file manager (leader+n)
-  "Plug 'scrooloose/nerdtree'
+  Plug 'scrooloose/nerdtree'
   
+  " snippets
+  Plug 'SirVer/ultisnips'
+
   " python formatting
   "Plug 'hynek/vim-python-pep8-indent'
   
@@ -128,8 +139,11 @@ colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
 source ~/.vim/pluginconfig/vim-airline.vim
 
 "nerdtree shortcut
-"map <C-n> :NERDTreeToggle<CR>
-"
+map <C-n> :NERDTreeToggle<CR>
+
+" snippets
+source ~/.vim/pluginconfig/ultisnips.vim
+set path+=~/.vim/UltiSnips/**
 
 "check spelling
 "set spell spelllang=en_us

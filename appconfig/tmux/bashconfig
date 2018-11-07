@@ -2,7 +2,7 @@
 #TMUX
 ################
 export RUN_TMUX=true
-export TMUX_BIN=/usr/include/bin/tmux
+export TMUX_BIN=/usr/local/bin/tmux
 
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
