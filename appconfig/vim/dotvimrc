@@ -1,20 +1,19 @@
-"copy and paste 
-"set clipboard=unnamed
+"copy and paste
 set clipboard=unnamedplus
 
-" better intendation Ctrl + >
-vnoremap < <gv 
-vnoremap > >gv
-
-" Syntax highlighting
+"Syntax highlighting
 filetype off
 filetype plugin indent on
 syntax on
 
-" set number of undos
+"better intendation Ctrl + >
+vnoremap < <gv 
+vnoremap > >gv
+
+"set number of undos
 set undolevels=700
 
-" no backup and swap files
+"no backup and swap files
 set nobackup
 set nowritebackup
 set noswapfile
@@ -22,52 +21,48 @@ set noswapfile
 "reload files changed outside vim - trigger autoread when changing buffers or
 "comming back to vim
 set autoread
-au FocusGained,BufEnter * :silent! !
+au FocusGained,BufEnter * :checktime
 
-" relative numbering of lines in vim
+"relative numbering of lines in vim
 set number relativenumber
-"set norelativenumber
-"set !relativenumber
 
+"visual tweeking
 set cursorline
 hi LineNr 	term=bold cterm=NONE ctermfg=DarkGray ctermbg=NONE gui=NONE guifg=DarkGray guibg=NONE
 hi CursorLineNr term=bold ctermfg=Yellow gui=bold guifg=Yellow
 hi CursorLine   cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=darkgray guifg=NONE
 
-" pane splitting
+"pane splitting
 set splitright
 set splitbelow
 
-" TABS
+"TABS
 set tabstop=2
-" when indenting with '>', use 2 spaces width
+"when indenting with '>', use 2 spaces width
 set shiftwidth=2
-" On pressing tab, insert 2 spaces
+"On pressing tab, insert 2 spaces
 set expandtab
 
-" wrap cursor on endline
+"wrap cursor on endline
 set whichwrap+=<,>,h,l,[,]
 
-set clipboard=unnamedplus     " shared clipboard with the system
-
-" some color stuff
-syntax enable
-
-" should fix colors in tmux
+"should fix colors in tmux
 set term=screen-256color
 
-" start scrolling when 8 lines away from margin
+"start scrolling when 8 lines away from margin
 set scrolloff=8
 
-" use enter to create new lines w/o entering insert mode
+"use enter to create new lines w/o entering insert mode
 nnoremap <CR> o
 
-" remap the leader key
+"make backspace work like normal
+set backspace=indent,eol,start
+
+"remap the leader key
 nnoremap , <NOP>
 let mapleader = ","
-nnoremap <space> <NOP>
-let maplocalleader = "`"
-
+"nnoremap <space> <NOP>
+"let maplocalleader = "`"
 
 call plug#begin('~/.vim/plugged')
 
@@ -89,7 +84,7 @@ call plug#begin('~/.vim/plugged')
   " Latex stuff
   "Plug 'lervag/vimtex'
 
-  " color scheme
+  "color scheme
   Plug 'nanotech/jellybeans.vim'
 
   " sharing registers between multiple instances of vim
@@ -101,6 +96,17 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+"vim-airline config
+source ~/.vim/pluginconfig/vim-airline.vim
+
+"jellybeans colorscheme
+colorscheme jellybeans 
+
+"nerdtree shortcut
+map <C-n> :NERDTreeToggle<CR>
+
+"highlight when searching
+set hlsearch
 
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
@@ -125,25 +131,6 @@ endfunction
 
 nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
-" just show the autocomplete menu
-"set completeopt=longest,menuone  
-
-
-colorscheme jellybeans " JELLYBEANS COLOR_SCHEME ACTIVE
-
-"latex 
-"let g:vimtex_compiler_latexmk = {'callback' : 0}
-
-
-"vim-airline config
-source ~/.vim/pluginconfig/vim-airline.vim
-
-"nerdtree shortcut
-map <C-n> :NERDTreeToggle<CR>
-
 " snippets
 source ~/.vim/pluginconfig/ultisnips.vim
 set path+=~/.vim/UltiSnips/**
-
-"check spelling
-"set spell spelllang=en_us

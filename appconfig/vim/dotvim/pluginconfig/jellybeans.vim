@@ -93,7 +93,7 @@ endif
 
 " Backwards compatibility
 if exists("g:jellybeans_background_color")
-  \ || exists("g:jellybeans_background_color_256")
+ || exists("g:jellybeans_background_color_256")
   \ || exists("g:jellybeans_use_term_background_color")
 
   let s:overrides = deepcopy(s:overrides)
