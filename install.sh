@@ -9,6 +9,8 @@ MISC_PATH=$MY_PATH/misc
 
 cd $MY_PATH
 git pull
+
+#initialize submodules
 git submodule init 
 git submodule update --init --recursive
 
@@ -17,31 +19,31 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 
 #install essentials
-sudo apt-get -y install build-essential make cmake ccache pkg-config automake autoconf libc++-dev clang-6.0 clang-format-6.0 python2.7-dev python3-dev
+sudo apt-get -y install build-essential make cmake cmake-curses-gui ccache pkg-config automake autoconf libc++-dev clang-6.0 clang-format-6.0 python2.7-dev python3-dev python3-pip
 
 #install libs
 sudo apt-get -y install libncurses5-dev libsdl2-dev
 
 #install tools
-sudo apt-get -y install htop tree ncdu git subversion unzip dialog
+sudo apt-get -y install htop tree ncdu git subversion unzip dialog figlet toilet exuberant-ctags xclip xsel
 
 #install cifs-utils for mounting dataset repository
-sudo apt-get install cifs-utils
+sudo apt-get -y install cifs-utils exfat-fuse
 
-#video processing 
-sudo apt-get -y install vlc mplayer ffmpeg
-
-#install vim
-bash $APPCONFIG_PATH/vim/install.sh
+#install programs
+sudo apt-get -y install vlc mplayer ffmpeg okular krita imagemagick
 
 #install tmux
 bash $APPCONFIG_PATH/tmux/install.sh
 
+#install vim
+bash $APPCONFIG_PATH/vim/install.sh
+
 #install opencv
-bash $APPCONFIG_PATH/opencv/install.sh
+#bash $APPCONFIG_PATH/opencv/install.sh
 
 #install ros
-bash $APPCONFIG_PATH/ros/install.sh
+#bash $APPCONFIG_PATH/ros/install.sh
 
 #install python libs
 bash $APPCONFIG_PATH/python/install.sh

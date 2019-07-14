@@ -1,3 +1,748 @@
-snippet bm "\mathbf{}" i
+snippet times "" i}
+\times
+endsnippet
+
+snippet lidar "" i
+LiDAR
+endsnippet
+
+snippet isotope "" i
+\isotope[${1}]{${2}}
+endsnippet
+
+snippet only "" i
+\only<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet onslide "" i
+\onslide<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet alert "" i
+\alert<${1:1}>{${2:${VISUAL}}}
+endsnippet
+
+snippet SI "" i
+\SI{${1}}{${2}}
+endsnippet
+
+snippet "fold" "" r
+%%\{ ${1}
+
+${2:${VISUAL}}
+
+%%\}
+endsnippet
+
+snippet scriptsize "" i
+\scriptsize
+endsnippet
+
+snippet small "" i
+\small
+endsnippet
+
+snippet tiny "" i
+\tiny
+endsnippet
+
+snippet shift
+shift = \{(${1:0.0}, ${2:0.0})\}
+endsnippet
+
+snippet tikzeval "" Ai
+(\$ ${1:${VISUAL}} \$)
+endsnippet
+
+snippet "eq" "" r
+(\\ref{eq:${1:${VISUAL}}})
+endsnippet
+
+snippet "leq" "" ri
+\leq
+endsnippet
+
+snippet "sec" "" ri
+(section~\\ref{sec:${1:${VISUAL}}})
+endsnippet
+
+snippet cmd "generic command \{}" i
+\\${1}{${2:${VISUAL}}}
+endsnippet
+
+snippet color "\color{} " i
+{\color{${1}} ${2:${VISUAL}}}
+endsnippet
+
+snippet "(TODO|todo)" "" ir
+\{\color{red} TODO ${2:${VISUAL}}}
+endsnippet
+
+snippet texttt "\texttt{}" i
+\\texttt{${1:${VISUAL}}}
+endsnippet
+
+snippet emphvar "\emphvar{}" i
+\\emphvar{${1}}
+endsnippet
+
+snippet section "\section{}"
+\\section{${1}}
+endsnippet
+
+snippet subsection "\subsection{}"
+\\subsection{${1}}
+endsnippet
+
+snippet subsubsection "\subsection{}"
+\\subsubsection{${1}}
+endsnippet
+
+snippet section* "\section*{}"
+\\section{${1}}
+endsnippet
+
+snippet subsection* "\subsection*{}"
+\\subsection*{${1}}
+endsnippet
+
+snippet subsubsection* "\subsubsection*{}"
+\\subsubsection*{${1}}
+endsnippet
+
+snippet center "\center{}" i
+\\begin{center}
+	${1:${VISUAL}}
+\\end{center}
+endsnippet
+
+snippet equation "\equation{}" i
+\\begin{equation}
+	${1:${VISUAL}}
+\\end{equation}
+endsnippet
+
+snippet split "\split{}" i
+\\begin{split}
+	${1:${VISUAL}}
+\\end{split}
+endsnippet
+
+snippet begin "\begin{}" i
+\\begin{${1}}
+	${2:${VISUAL}}
+\\end{$1}
+endsnippet
+
+snippet end "\end{}" i
+\\end{$1}
+endsnippet
+
+snippet itemize "\itemize{}" i
+\\begin{itemize}
+${1:${VISUAL}}
+\\end{itemize}
+endsnippet
+
+snippet enumerate "\enumerate{}" i
+\\begin{enumerate}
+${1:${VISUAL}}
+\\end{enumerate}
+endsnippet
+
+snippet item "\item{}" i
+\\item ${1:${VISUAL}}
+endsnippet
+
+snippet bmatrix "\bmatrix{}" i
+\\begin{bmatrix}
+${1:${VISUAL}}
+\\end{bmatrix}
+endsnippet
+
+snippet pmatrix "\pmatrix{}" i
+\\begin{pmatrix}
+${1:${VISUAL}}
+\\end{pmatrix}
+endsnippet
+
+snippet figure "\figure{}"
+\\begin{figure}
+${1:${VISUAL}}
+\\end{figure}
+endsnippet
+
+snippet subfigure "\subfigure{}"
+\\begin{subfigure}{${2:0.49}\textwidth}
+${1:${VISUAL}}
+\\end{subfigure}
+endsnippet
+
+snippet figuree "figure with caption etc."
+\\begin{figure} [h]
+	\\centering
+	\\includegraphics[height=2.0in, width=${1:1.0}\textwidth]{./fig/${2}}
+	\\caption{${3}}
+	\\label{fig:${4}}
+\\end{figure}
+endsnippet
+
+snippet jfrfigure "figure, as defined in the JFR tamplate"
+\\begin{figure} [h]
+	\\centering
+	\\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
+	\\hspace{.2in}
+	\\includegraphics[width=${3:1.0}\textwidth]{./fig/${4}}
+	\\caption{${5}}
+	\\label{fig:${6}}
+\\end{figure}
+endsnippet
+
+snippet jinstfigure "figure, as defined in the JINST tamplate"
+\begin{figure}[${1:htbp}]
+	\centering
+	\includegraphics[width=.4\textwidth,origin=c]{./fig/${2}}
+	\caption{\label{fig:${4}} ${5}}
+\end{figure}
+endsnippet
+
+snippet jinstfigure2 "figure, as defined in the JINST tamplate"
+\begin{figure}[${1:htbp}]
+	\centering
+	\includegraphics[width=.4\textwidth,origin=c]{./fig/${2}}
+	\qquad
+	\includegraphics[width=.4\textwidth,origin=c]{./fig/${3}}
+	\caption{\label{fig:${4}} ${5}}
+\end{figure}
+endsnippet
+
+snippet jinsttable "table, as defined in the JINST tamplate"
+\begin{table}[htbp]
+	\centering
+	\caption{\label{tab:i} We prefer to have borders around the tables.}
+	\smallskip
+	\begin{tabular}{|lr|c|}
+	\hline
+	x&y&x and y\\
+	\hline
+	a & b & a and b\\
+	1 & 2 & 1 and 2\\
+	$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
+	\hline
+	\end{tabular}
+\end{table}
+endsnippet
+
+snippet ieeefigure "figure, as defined in the IEEE tamplate"
+\\begin{figure}[thpb]
+	\\centering
+	\\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
+	\\caption{${3}}
+	\\label{fig:${4}}
+\\end{figure}
+endsnippet
+
+snippet jfrtable "table as defined in the JFR template"
+\\begin{table}[t]
+\\caption{${1}} \label{${2:sample-table}}
+\\begin{center}
+\\begin{tabular}{${3:|c|c|c|}}
+	\\hline
+	${4:& title1 & title2} \\\\
+	\\hline\hline
+	${5:line1 & foo & bar} \\\\ \\hline
+	\\hline
+\\end{tabular}
+\end{center}
+\\end{table}
+endsnippet
+
+snippet centering "\centering{}" i
+\\centering
+endsnippet
+
+snippet includegraphics "\includegraphics{}" i
+\\includegraphics[width=${1:1.0}\textwidth]{./fig/${2}}
+endsnippet
+
+snippet label "\label{}" i
+\\label{${1:${VISUAL}}}
+endsnippet
+
+snippet input "\input{}" i
+\\input{${1:${VISUAL}}}
+endsnippet
+
+snippet caption "\caption{}" i
+\\caption{${1:${VISUAL}}}
+endsnippet
+
+snippet textit "\textit{}" i
+\\textit{${1:${VISUAL}}}
+endsnippet
+
+snippet textbf "\textbf{}" i
+\\textbf{${1:${VISUAL}}}
+endsnippet
+
+snippet vspace "\vspace{}" i
+\\vspace{${1:${VISUAL}}}
+endsnippet
+
+snippet hspace "\hspace{}" i
+\\hspace{${1:${VISUAL}}}
+endsnippet
+
+snippet emph "\emph{}" i
+\\emph{${1:${VISUAL}}}
+endsnippet
+
+snippet autoref "\autoref{}" i
+\\autoref{${1:${VISUAL}}}
+endsnippet
+
+snippet cite "\cite{}" i
+\\cite{${1:${VISUAL}}}
+endsnippet
+
+snippet dot "\dot{}" i
+\\dot{${1:${VISUAL}}}
+endsnippet
+
+snippet cdot "\cdot" i
+\cdot
+endsnippet
+
+snippet ddot "\ddot{}" i
+\\ddot{${1:${VISUAL}}}
+endsnippet
+
+snippet mathbf "\mathbf{}" i
 \\mathbf{${1:${VISUAL}}}
+endsnippet
+
+snippet mathrm "\mathrm{}" i
+\\mathrm{${1:${VISUAL}}}
+endsnippet
+
+snippet mathcal "\mathcal{}" i
+\\mathcal{${1:${VISUAL}}}
+endsnippet
+
+snippet mathbb "\mathbb{}" i
+\\mathbb{${1:${VISUAL}}}
+endsnippet
+
+snippet underline "\underline{}" i
+\\underline{${1:${VISUAL}}}
+endsnippet
+
+snippet footnote "\footnote{}" i
+\\footnote{${1:${VISUAL}}}
+endsnippet
+
+snippet url "\url{}" i
+\\url{${1:${VISUAL}}}
+endsnippet
+
+snippet "(jed)|(unit)" "\unit{}" ir
+\\unit{${1:${VISUAL}}}{${2}}
+endsnippet
+
+snippet transpose "^T" i
+${1:${VISUAL}}^T
+endsnippet
+
+snippet math "$$$$"
+\$\$
+${1:${VISUAL}}
+\$\$
+endsnippet
+
+snippet "inmath" "inline math $ .. $" riA
+\$${1:${VISUAL}}\$
+endsnippet
+
+snippet frac "\frac{}{}" i
+\\frac{${1:${VISUAL}}}{${2}}
+endsnippet
+
+snippet l) "" i
+\\left)
+endsnippet
+
+snippet l[ "" i
+\\left[
+endsnippet
+
+snippet r] "" i
+\\right]
+endsnippet
+
+snippet r) "" i
+\\right)
+endsnippet
+
+snippet l( "" i
+\\left(
+endsnippet
+
+snippet r( "" i
+\\right(
+endsnippet
+
+snippet langle "" i
+\\langle
+endsnippet
+
+snippet rangle "" i
+\\rangle
+endsnippet
+
+snippet () "" i
+\\left(${1:${VISUAL}}\\right)
+endsnippet
+
+snippet [] "" i
+\\left[${1:${VISUAL}}\\right]
+endsnippet
+
+snippet <> "" i
+\\langle${1:${VISUAL}}\\rangle
+endsnippet
+
+snippet textunderscore "\textunderscore{}" i
+\textunderscore
+endsnippet
+
+snippet bibitem "\bibitem{}" i
+\\bibitem{${1:${VISUAL}}}
+endsnippet
+
+snippet usepackage "\usepackage{}" b
+\\usepackage{${1:${VISUAL}}}
+endsnippet
+
+snippet forall "\forall" Ai
+\\forall ${1}
+endsnippet
+
+snippet subfloat "big" i
+\subfloat[${1:Image caption}] {
+	${2:${VISUAL}}
+}
+endsnippet
+
+snippet subfloat "small" i
+\subfloat[${1:Image caption}] {${2:${VISUAL}}}
+endsnippet
+
+snippet vphantom "" i
+\vphantom{${1:${VISUAL}}}%
+endsnippet
+
+snippet frame "Beamer frame" 
+%%{ $1
+\begin{frame}
+\frametitle{${1:Frame title}}
+
+${2:${VISUAL}}
+
+\end{frame}
+%%}
+endsnippet
+
+snippet frame "image frame" 
+\frame{${1:${VISUAL}}}
+endsnippet
+
+snippet block
+\begin{block}{${1:Block title}}
+${2:${VISUAL}}
+\end{block}
+endsnippet
+
+snippet columns
+\begin{columns}[${1:c}]
+
+\column{${2:0.48}\textwidth} % Left column and width
+${4:${VISUAL}}
+
+\column{${3:0.48}\textwidth} % Right column and width
+${5}
+
+\end{columns}
+endsnippet
+
+snippet table
+\begin{table}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\\\
+Treatment 2 & 0.0015681 & 0.910 \\\\
+Treatment 3 & 0.0009271 & 0.296 \\\\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+endsnippet
+
+snippet theorem
+\begin{theorem}[${1:Title}]
+\$${1:1 + 1 = 2}\$
+\end{theorem}
+endsnippet
+
+snippet example
+% \begin{frame}[fragile] needs to be used when verbatim is in the slide
+\begin{example}[${1:Example title}]
+\begin{verbatim}
+${2:${VISUAL}}
+\end{verbatim}
+\end{example}
+endsnippet
+
+snippet hfill
+\\hfill%
+endsnippet
+
+snippet videoblock_split
+\begin{block}{${1:Video title}}
+	\begin{center}
+		\begin{columns}[c]
+			\column{0.48\textwidth} % Left column and width
+				\movie[externalviewer]{
+					\includegraphics[width=0.8\textwidth]{./fig/$2_thumbnail.jpg}
+				}{video/${2:filename}.${3:mp4}}\\\\
+			\column{0.48\textwidth} % Left column and width
+				\url{${4:link}}
+		\end{columns}
+	\end{center}
+\end{block}
+endsnippet
+
+snippet videoblock
+\begin{block}{${1:Video title}}
+	\begin{center}
+		\movie[externalviewer]{
+			\includegraphics[width=0.8\textwidth]{./fig/$2_thumbnail.jpg}
+		}{video/${2:filename}.${3:mp4}}\\\\
+		Video: \url{${4:link}}
+	\end{center}
+\end{block}
+endsnippet
+
+snippet overview
+\begin{frame}
+	\frametitle{{${1:Overview}}
+	\tableofcontents[${2:currentsection}] % currentsection, currentsubsection
+\end{frame}
+endsnippet
+
+snippet inst "" i
+\\inst{${1:${VISUAL}}}
+endsnippet
+
+snippet sout "" i
+\\sout{${1:${VISUAL}}}
+endsnippet
+
+snippet minipage
+\\minipage[c][0.85\textheight][s]{\columnwidth}
+
+${1:${VISUAL}}
+
+\\endminipage
+endsnippet
+
+snippet superfill "" i
+\\superfill
+endsnippet
+
+snippet vfill "" i
+\\vfill
+endsnippet
+
+snippet approx "" i
+\\approx
+endsnippet
+
+snippet path
+\\path[-] (\$(${1:from_point})\$) edge [${2:->}] (\$(${3:to_point})\$);
+endsnippet
+
+snippet in
+\\in
+endsnippet
+
+snippet hat "" i
+\\hat{${1:${VISUAL}}}
+endsnippet
+
+snippet corr "" i
+\\corrected {${1:${VISUAL}}}
+endsnippet
+
+snippet up "" i
+\\updated {${1:${VISUAL}}}
+endsnippet
+
+snippet tableofcontents
+\\tableofcontents[${2:currentsection}] % currentsection, currentsubsection
+endsnippet
+
+snippet frametitle
+\\frametitle{${1:${VISUAL}}}
+endsnippet
+
+snippet huge
+\\huge
+endsnippet
+
+snippet "(paragraph|par)" "" r
+\\paragraph{${1:${VISUAL}}} ${2}
+endsnippet
+
+snippet clearpage "" b
+\\clearpage
+endsnippet
+
+snippet cleardoublepage "" b
+\\cleardoublepage
+endsnippet
+
+snippet "Theta" "" ri
+\Theta
+endsnippet
+
+snippet "theta" "" ri
+\theta
+endsnippet
+
+snippet "phi" "" ri
+\phi
+endsnippet
+
+snippet "Phi" "" ri
+\Phi
+endsnippet
+
+snippet "sigma" "" ri
+\sigma
+endsnippet
+
+snippet "Sigma" "" ri
+\Sigma
+endsnippet
+
+snippet "Omega" "" ri
+\Omega
+endsnippet
+
+snippet "omega" "" ri
+\omega
+endsnippet
+
+snippet "Alpha" "" ri
+\Alpha
+endsnippet
+
+snippet "alpha" "" ri
+\alpha
+endsnippet
+
+snippet "Beta" "" ri
+\Beta
+endsnippet
+
+snippet "beta" "" ri
+\beta
+endsnippet
+
+snippet "Gamma" "" ri
+\Gamma
+endsnippet
+
+snippet "gamma" "" ri
+\gamma
+endsnippet
+
+snippet "Lambda" "" ri
+\Lambda
+endsnippet
+
+snippet "lambda" "" ri
+\lambda
+endsnippet
+
+snippet "pi" "" ri
+\pi
+endsnippet
+
+snippet "Pi" "" ri
+\Pi
+endsnippet
+
+snippet "nu" "" ri
+\nu
+endsnippet
+
+snippet "Nu" "" ri
+\Nu
+endsnippet
+
+snippet "mu" "" ri
+\mu
+endsnippet
+
+snippet "Mu" "" ri
+\Mu
+endsnippet
+
+snippet "," "" ri
+\,
+endsnippet
+
+snippet "sin" "" ri
+\sin${1:${VISUAL}}
+endsnippet
+
+snippet "cos" "" ri
+\cos${1:${VISUAL}}
+endsnippet
+
+snippet "(partial)|(part)" "" ri
+\partial
+endsnippet
+
+snippet "int" "" ri
+\int_
+endsnippet
+
+snippet "sum" "" ri
+\sum_
+endsnippet
+
+snippet "(mid)|(\|)" "" ri
+\mid
+endsnippet
+
+snippet "sqrt" "" ri
+\sqrt{${1:${VISUAL}}}
+endsnippet
+
+snippet tabular
+\begin{tabular}{${1}}
+${2:${VISUAL}}
+\end{tabular}
+endsnippet
+
+snippet hline
+\hline
+endsnippet
+
+snippet makecell "" i
+\makecell{${1:${VISUAL}}}
 endsnippet

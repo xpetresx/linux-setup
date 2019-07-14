@@ -1,6 +1,3 @@
-[submodule "submodules/tmux"]
-	path = submodules/tmux
-	url = https://github.com/tmux/tmux.git
 [submodule "submodules/tmuxinator"]
 	path = submodules/tmuxinator
 	url = https://github.com/tmuxinator/tmuxinator.git
@@ -10,3 +7,12 @@
 [submodule "submodules/vim-plug"]
 	path = submodules/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "submodules/fonts"]
+	path = submodules/fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "submodules/vimiv"]
+	path = submodules/vimiv
+	url = https://github.com/karlch/vimiv
+[submodule "submodules/the_silver_searcher"]
+	path = submodules/the_silver_searcher
+	url = https://github.com/ggreer/the_silver_searcher.git
