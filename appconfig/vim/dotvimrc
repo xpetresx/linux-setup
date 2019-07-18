@@ -174,7 +174,21 @@ Plug 'tommcdo/vim-exchange'
 
 call plug#end()
 
+" better intendation Ctrl + >
+vnoremap < <gv
+vnoremap > >gv
+
+"set number of undos
+set undolevels=700
+
+" wrap cursor on endline
+set whichwrap+=<,>,h,l,[,]
+
+"clipboard
 set clipboard=unnamedplus     " shared clipboard with the system
+
+" use enter to create new lines w/o entering insert mode
+nnoremap <CR> o
 
 " some color stuff
 syntax enable
