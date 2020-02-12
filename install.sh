@@ -18,12 +18,6 @@ git submodule update --init --recursive
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-#install vim
-bash $APPCONFIG_PATH/vim/install.sh
-
-
-exit 0
-
 #install essentials
 sudo apt-get -y install build-essential make cmake cmake-curses-gui ccache pkg-config automake autoconf libc++-dev clang-6.0 clang-format-6.0 python2.7-dev python3-dev python3-pip
 
@@ -42,6 +36,8 @@ sudo apt-get -y install cifs-utils exfat-fuse
 #install tmux
 bash $APPCONFIG_PATH/tmux/install.sh
 
+#install vim
+bash $APPCONFIG_PATH/vim/install.sh
 
 #install opencv
 #bash $APPCONFIG_PATH/opencv/install.sh
