@@ -4,18 +4,25 @@
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 #add trusted key
-sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+sudo apt install curl # if you haven't already installed curl
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
 #update
-sudo apt-get -y update
+sudo apt update
 
 #install ros
-sudo apt-get -y install ros-melodic-desktop-full
+sudo apt-get -y install ros-noetic-desktop-full
+
+#add ros to .bashrc
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 
 #init rosdep
 sudo rosdep init
 rosdep update
 
-#add ros to .bashrc
-echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-source ~/.bashrc
+#install further ros packages
+sudo apt-get -y install ros-noetic-tf2-geometry-msgs
+sudo apt-get -y install ros-noetic-tf2-sensor-msgs
+sudo apt-get -y install ros-noetic-joy
+
