@@ -38,6 +38,9 @@ call plug#begin("~/.vim/plugged")
   " Latex stuff
   Plug 'lervag/vimtex'
 
+  "Autocomplete plug
+  Plug 'vim-scripts/AutoComplPop'
+
 call plug#end()
 
 " better intendation Ctrl + >
@@ -163,8 +166,8 @@ nnoremap gf <C-W>gf
   " config for vim-commentary
   source ~/.vim/pluginconfig/vim-commentary.vim
 
-  " set vim and airline colorscheme
 
+  " set vim and airline colorscheme
   if !empty($LIGHT_MODE)
     if $LIGHT_MODE
       colorscheme raggi
@@ -178,3 +181,21 @@ nnoremap gf <C-W>gf
     let g:airline_theme='jellybeans'
   endif
   
+  "config for pop up menu
+  set spell
+  set spelllang=en_us
+  set spellfile=en.utf-8.add
+
+  "spellcheck highlighting 
+  hi clear SpellBad
+  hi clear SpellLocal
+  hi clear SpellRare
+  hi clear SpellCap
+  hi SpellBad cterm=underline ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE
+  hi SpellLocal cterm=underline ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE
+  hi SpellRare cterm=underline ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE
+  hi SpellCap cterm=underline ctermfg=NONE guifg=NONE ctermbg=NONE guibg=NONE
+
+  set complete+=kspell
+  set completeopt=menuone,longest
+  set shortmess+=c
