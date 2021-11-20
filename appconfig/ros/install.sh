@@ -1,5 +1,9 @@
 #!/bin/bash
 
+distro=`lsb_release -r | awk '{ print $2 }'`
+[ "$distro" = "18.04" ] && ROS_DISTRO="melodic"
+[ "$distro" = "20.04" ] && ROS_DISTRO="noetic"
+
 #add source
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -10,8 +14,8 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 #update
 sudo apt update
 
-#install ros
-sudo apt-get -y install ros-noetic-desktop-full
+#install ros 
+sudo apt-get -y install ros-"$ROS_DISTRO"-desktop-full
 
 #add ros to .bashrc
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
@@ -22,7 +26,7 @@ sudo rosdep init
 rosdep update
 
 #install further ros packages
-sudo apt-get -y install ros-noetic-tf2-geometry-msgs
-sudo apt-get -y install ros-noetic-tf2-sensor-msgs
-sudo apt-get -y install ros-noetic-joy
+sudo apt-get -y install ros-"$ROS_DISTRO"-tf2-geometry-msgs
+sudo apt-get -y install ros-"$ROS_DISTRO"-tf2-sensor-msgs
+sudo apt-get -y install ros-"$ROS_DISTRO"-joy
 
