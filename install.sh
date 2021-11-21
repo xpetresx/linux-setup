@@ -46,7 +46,7 @@ toilet "Installing essentials"
 sudo apt-get -y install build-essential make cmake cmake-curses-gui ccache pkg-config automake autoconf libc++-dev clang clang-format
 
 #install tools
-sudo apt-get -y install htop tree ncdu git subversion unzip exuberant-ctags xclip xsel toilet
+sudo apt-get -y install htop tree ncdu git subversion nmap unzip exuberant-ctags xclip xsel toilet
 
 #install cifs-utils for mounting dataset repository
 sudo apt-get -y install cifs-utils exfat-fuse exfat-utils
