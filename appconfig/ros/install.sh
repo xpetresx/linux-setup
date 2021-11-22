@@ -30,3 +30,5 @@ sudo apt-get -y install ros-"$ROS_DISTRO"-tf2-geometry-msgs
 sudo apt-get -y install ros-"$ROS_DISTRO"-tf2-sensor-msgs
 sudo apt-get -y install ros-"$ROS_DISTRO"-joy
 
+#install catkin tools
+sudo apt-get -y install python3-catkin-tools
