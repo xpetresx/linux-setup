@@ -1,2 +1,0 @@
-#Changing the permission to access hidraw
-KERNEL=="hidraw*", SUBSYSTEM=="hidraw",  ATTRS{idVendor}=="2560", MODE="0666"

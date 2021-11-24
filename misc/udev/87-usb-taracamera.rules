@@ -1,1 +1,0 @@
-KERNEL=="video[0-9]*", ATTR{idVendor}=="2560", ATTR{idProduct}=="c114", SYMLINK+="tara3d"

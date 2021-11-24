@@ -13,3 +13,6 @@
 [submodule "submodules/vimiv"]
 	path = submodules/vimiv
 	url = https://github.com/karlch/vimiv
+[submodule "submodules/ranger"]
+	path = submodules/ranger
+	url = https://github.com/ranger/ranger
