@@ -32,17 +32,21 @@ if [ $INSTALL_UNATTENDED -eq 0 ]; then
   clear
 fi
 
+# colors in case of no toilet installed
+PUR='\033[0;35m' # purple
+NoC='\033[0m'    # no color
+
 #initialize submodules
-toilet "Downloading git submodules"
+toilet "Downloading git submodules" || echo -e "${PUR}Downloading git submodules${NoC}"
 git submodule update --init --recursive
 
 #update and upgrade current packages
-toilet "Updating and Upgrading the system"
+toilet "Updating and Upgrading the system" || echo -e "${PUR}Updating and Upgrading the system${NoC}"
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
 #install essentials
-toilet "Installing essentials"
+toilet "Installing essentials" || echo -e "${PUR}Installing essentials${NoC}"
 sudo apt-get -y install build-essential make cmake cmake-curses-gui ccache pkg-config automake autoconf libc++-dev clang clang-format
 
 #install tools
