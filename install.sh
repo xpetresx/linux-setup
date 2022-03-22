@@ -61,6 +61,12 @@ if [ $INSTALL_TMUX -eq 1 ]; then
   bash $APPCONFIG_PATH/tmux/install.sh
 fi
 
+# install autorun tmux
+if [ $INSTALL_TMUX_AUTOSTART -eq 1 ]; then
+  toilet "Autorun tmux"
+  echo '[ $TERM != "screen" ] && TERM=xterm-256color && runTmux' >> ~/.bashrc
+fi
+
 #install vim
 if [ $INSTALL_VIM -eq 1 ]; then
   toilet "Installing vim"
