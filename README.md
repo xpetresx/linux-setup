@@ -5,3 +5,4 @@
 - [ ] Foxit reader
 - [ ] Master pdf
 - [ ] pdftk
+- [ ] youtube-dl from apt
