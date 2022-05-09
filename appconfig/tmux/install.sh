@@ -4,7 +4,7 @@
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-sudo apt install tmux
+sudo apt install tmux -y
 
 # symlink tmux settings
 rm ~/.tmux.conf

@@ -32,17 +32,21 @@ if [ $INSTALL_UNATTENDED -eq 0 ]; then
   clear
 fi
 
+# colors in case of no toilet installed
+PUR='\033[0;35m' # purple
+NoC='\033[0m'    # no color
+
 #initialize submodules
-toilet "Downloading git submodules"
+toilet "Downloading git submodules" || echo -e "${PUR}Downloading git submodules${NoC}"
 git submodule update --init --recursive
 
 #update and upgrade current packages
-toilet "Updating and Upgrading the system"
+toilet "Updating and Upgrading the system" || echo -e "${PUR}Updating and Upgrading the system${NoC}"
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
 #install essentials
-toilet "Installing essentials"
+toilet "Installing essentials" || echo -e "${PUR}Installing essentials${NoC}"
 sudo apt-get -y install build-essential make cmake cmake-curses-gui ccache pkg-config automake autoconf libc++-dev clang clang-format
 
 #install tools
@@ -55,6 +59,12 @@ sudo apt-get -y install cifs-utils exfat-fuse exfat-utils
 if [ $INSTALL_TMUX -eq 1 ]; then
   toilet "Installing tmux"
   bash $APPCONFIG_PATH/tmux/install.sh
+fi
+
+# install autorun tmux
+if [ $INSTALL_TMUX_AUTOSTART -eq 1 ]; then
+  toilet "Autorun tmux"
+  echo '[ $TERM != "screen" ] && TERM=xterm-256color && runTmux' >> ~/.bashrc
 fi
 
 #install vim

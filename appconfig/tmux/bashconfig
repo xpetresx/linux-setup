@@ -40,6 +40,3 @@ runTmux() {
 }
 _trap_exit() { $TMUX_BIN kill-session -t "T$BASHPID"; }                                                       
 trap _trap_exit EXIT
-
-
-[ $TERM != "screen" ] && TERM=xterm-256color && runTmux
